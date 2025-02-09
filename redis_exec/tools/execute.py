@@ -13,11 +13,14 @@ class ExecuteTool(Tool):
         return self.conn
 
     def _invoke(self, tool_parameters: dict[str, Any]) -> Union[ToolInvokeMessage]:
+        db = self.runtime.credentials.get("db")
+        db = 0 if not db else int(db)
+        port = int(self.runtime.credentials.get("port"))
         config = {
             "host": self.runtime.credentials.get("host"),
-            "port": self.runtime.credentials.get("port"),
+            "port": port,
             "password": self.runtime.credentials.get("password"),
-            "db": self.runtime.credentials.get("db", 0),
+            "db": db
         }
         command = tool_parameters.get("exec_command")
         if not command:
@@ -26,8 +29,5 @@ class ExecuteTool(Tool):
         command = command.lower()
         command_list = command.split()
         result = self._conn(**config).execute_command(*command_list)
-        # result = {}
-        # result.update(config)
-        # result["exec_command"] = exec_command
-        # print(result)
+        result = {"result": result if result else str(result)}
         yield self.create_json_message(result)
