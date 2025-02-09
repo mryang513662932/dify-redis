@@ -1,0 +1,80 @@
+identity:
+  author: yangchangtai
+  name: redis_exec
+  label:
+    en_US: Redis Executor
+    zh_Hans: Redis 执行器
+    pt_BR: Redis Executor
+  description:
+    en_US: Can add, delete, modify, and search Redis
+    zh_Hans: 可对redis进行增删改查
+    pt_BR: Can add, delete, modify, and search Redis
+  icon: icon.svg
+  tags:
+    - other
+credentials_for_provider:
+  name:
+    type: text-input
+    required: true
+    label:
+      en_US: redis name
+      zh_Hans: redis 名称
+    placeholder:
+      en_US: Please input your redis name
+      zh_Hans: 请输入你的 redis 名称
+    help:
+      en_US: Please input your redis name
+      zh_Hans: 请输入你的 redis 名称
+  host:
+    type: text-input
+    required: true
+    label:
+      en_US: redis host address
+      zh_Hans: redis host 地址
+    placeholder:
+      en_US: Please input your redis host address
+      zh_Hans: 请输入你的 redis host
+    help:
+      en_US: Please input your redis host address
+      zh_Hans: 请输入你的 redis host
+  port:
+    type: text-input
+    required: true
+    label:
+      en_US: redis port
+      zh_Hans: redis port
+    placeholder:
+      en_US: Please input your redis port
+      zh_Hans: 请输入你的 redis port
+    help:
+      en_US: Please input your redis port
+      zh_Hans: 请输入你的 redis port
+  password:
+    type: secret-input
+    required: true
+    label:
+      en_US: redis password
+      zh_Hans: redis 密码
+    placeholder:
+      en_US: Please input your redis password
+      zh_Hans: 请输入你的 redis 密码
+    help:
+      en_US: Please input your redis password
+      zh_Hans: 请输入你的 redis 密码
+  db:
+    type: text-input
+    required: false
+    label:
+      en_US: redis db
+      zh_Hans: redis db
+    placeholder:
+      en_US: Please input your redis db,default 0
+      zh_Hans: 请输入你的 redis db，默认 0
+    help:
+      en_US: Please input your redis db,default 0
+      zh_Hans: 请输入你的 redis db，默认 0
+tools:
+  - tools/execute.yaml
+extra:
+  python:
+    source: provider/redis_exec.py

@@ -1,0 +1,30 @@
+identity:
+  name: execute
+  author: yangchangtai
+  label:
+    en_US: redis command execute
+    zh_Hans: redis 命令执行
+    pt_BR: redis command execute
+description:
+  human:
+    en_US: The commands executed on Redis can be add, delete, modify, and query
+    zh_Hans: 对 redis 执行的命令，可以是增删改查
+    pt_BR: The commands executed on Redis can be add, delete, modify, and query
+  llm: 对 redis 执行的命令，可以是增删改查
+parameters:
+  - name: exec_command
+    type: string
+    required: true
+    label:
+      en_US: redis command
+      zh_Hans: redis 命令
+      pt_BR: redis command
+    human_description:
+      en_US: The commands executed on Redis can be add, delete, modify, and query
+      zh_Hans: 对 redis 执行的命令，可以是增删改查
+      pt_BR: The commands executed on Redis can be add, delete, modify, and query
+    llm_description: 对 redis 执行的命令，可以是增删改查
+    form: llm
+extra:
+  python:
+    source: tools/execute.py

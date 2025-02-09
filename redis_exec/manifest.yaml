@@ -1,0 +1,42 @@
+version: 0.0.1
+type: plugin
+author: yangchangtai
+name: redis_exec
+label:
+  en_US: Redis Executor
+  ja_JP: Redis Executor
+  zh_Hans: redis 执行器
+  pt_BR: Redis Executor
+description:
+  en_US: Can add, delete, modify, and search Redis
+  ja_JP: Can add, delete, modify, and search Redis
+  zh_Hans: 可对redis进行增删改查
+  pt_BR: Can add, delete, modify, and search Redis
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+    endpoint:
+      enabled: true
+    app:
+      enabled: true
+    storage:
+      enabled: true
+      size: 1048576
+plugins:
+  tools:
+    - provider/redis_exec.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+created_at: 2025-02-06T23:20:54.277364+08:00
+privacy: PRIVACY.md
+verified: false
